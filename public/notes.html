@@ -16,22 +16,39 @@
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/">Note Taker
     </a>
-    <div class="icons">
-      <i class="fas fa-save text-light save-note"></i>
-      <i class="fas fa-pen text-light new-note"></i>
-    </div>
   </nav>
   <div class="container-fluid">
+    <div class="jumbotron text-center m-2">
+      <h1 class="display-4">Note Taker <span role="img" aria-label="Memo">📝</span></h1>      
+    </div>
     <div class="row">
-      <div class="col-4 list-container">
-        <div class="card">
-          <ul class="list-group">
-          </ul>
+      <div class="col-md-5 col-sm-6 list-container">
+        <div class="card m-2">
+          <div class="card-body">
+            <h4 class="font-weight-bold text-center m-2">Saved Notes</h4>
+            <dl class="list-group">
+              <div class="list-group-item m-2">
+                <dt>This is the Title of the Notes</dt>
+                <dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto modi laudantium explicabo sed, deserunt quod repellat dolor ducimus ipsam natus similique dignissimos qui eveniet, molestiae blanditiis dolorum iure quo fugit.</dd>
+              </div>
+              <div class="list-group-item m-2">
+                <dt>This is the Title of the Notes</dt>
+                <dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto modi laudantium explicabo sed, deserunt quod repellat dolor ducimus ipsam natus similique dignissimos qui eveniet, molestiae blanditiis dolorum iure quo fugit.</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
-      <div class="col-8">
-        <input class="note-title" placeholder="Note Title" maxlength="28" type="text">
-        <textarea class="note-textarea" placeholder="Note Text"></textarea>
+      <div class="col-md-7 col-sm-6">
+        <div class="card m-2"> 
+          <h4 class="font-weight-bold text-center m-2">Write New Notes</h4>         
+          <input class="note-title m-2" placeholder="Note Title" maxlength="28" type="text">
+          <textarea textarea class="note-textarea m-2" placeholder="Note Text"></textarea>
+          <div class="col-12 text-center">
+            <button type="button" class="btn btn-success text-center m-2" id="saveNotes"><i class="fas fa-save text-light save-note"></i></button>
+            <button type="button" class="btn btn-success text-center m-2" id="writeNotes"><i class="fas fa-pen text-light new-note"></i></button>
+          </div>         
+        </div>        
       </div>
     </div>
   </div>
