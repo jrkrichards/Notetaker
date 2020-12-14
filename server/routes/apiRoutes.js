@@ -8,30 +8,13 @@ const dbInfo = fs.readFile("../db/db.json", "utf8", (err, data) => {
   });
 
 // Allowing the client to access specific data
-router.get("/", (req, res) => {
+router.get("/notes", (req, res) => {
     console.log("we have been hit")
     fs.readFile("../db/db.json", "utf8", (err,data) => {
         if(err) throw err;
         res.json(JSON.parse(data));
     });
 });
-
-// To receive data from the url.
-router.get("/notes", (req,res) => {
-    fs.readFile("../db/db.json", "utf8", (err,data) => {
-        if(err) throw err;
-        
-        const allNotes = JSON.parse(data)
-
-        for (let i = 0; i < allNotes.length; i++) {
-            return res.json(allNotes[i]);
-        };
-        
-        return res.json({
-            msg:"There are no saved notes."
-        });
-    });
-});    
 
 // post new notes
 // router.post("/characters/new", (req, res) => {
