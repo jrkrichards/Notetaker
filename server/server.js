@@ -9,6 +9,9 @@ app.use(express.urlencoded({extended: true}));
 // needed to use json
 app.use(express.json())
 
+// needed to use static files
+app.use("/assets", express.static('../public/assets/'));
+
 app.use("/api", apiRoutes)
 app.use("/", clientRoutes)
 
