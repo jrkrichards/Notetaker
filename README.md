@@ -7,11 +7,11 @@ This application allows the users to save notes to the backend using express and
 ### Team Generator:
 
 Start:
-![Image of Start](./Assets/imgs/home_page.png)
+![Image of Start](./assets/home_page.png)
 Notes:
-![Image of Notes](./Assets/imgs/note_page.png)
+![Image of Notes](./assets/note_page.png)
 New Note:
-![Image of New Note](./Assets/imgs/new_note.png)
+![Image of New Note](./assets/new_note.png)
 
 ## Table of Contents
 
