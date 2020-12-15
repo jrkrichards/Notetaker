@@ -17,28 +17,25 @@ router.get("/notes", (req, res) => {
 });
 
 // post new notes
-// router.post("/characters/new", (req, res) => {
-//     console.log(req.body);
-//     fs.readFile("./data.json", "utf8", (err, data) => {
-//         if(err) throw err;
-//         const allCharacters = JSON.parse(data);
-//         console.log(req.body)
-//         allCharacters.push({
-//             routeName: req.body.routeName,
-//             name: req.body.name,
-//             role: req.body.role,
-//             age: parseInt(req.body.age),
-//             forcePoints: parseInt(req.body.forcePoints)
-//         })
-//         console.log(allCharacters)
+router.post("/notes", (req, res) => {
+    console.log(req.body);
+    fs.readFile("../db/db.json", "utf8", (err, data) => {
+        if(err) throw err;
+        const allNotes = JSON.parse(data);
+        console.log(req.body)
+        allNotes.push({
+            title: req.body.title,
+            text: req.body.text,
+        })
+        console.log(allCharacters)
 
-//         fs.writeFile("./data.json", JSON.stringify(allCharacters), (err) => {
-//             if(err) throw err;
-//             res.json({
-//                 msg: "success fully added"
-//             })
-//         })
-//     });
-// })
+        fs.writeFile("../db/db.json", JSON.stringify(allNotes), (err) => {
+            if(err) throw err;
+            res.json({
+                msg: "success fully added"
+            })
+        })
+    });
+})
 
 module.exports = router
