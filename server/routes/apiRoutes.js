@@ -22,12 +22,14 @@ router.post("/notes", (req, res) => {
     fs.readFile("../db/db.json", "utf8", (err, data) => {
         if(err) throw err;
         const allNotes = JSON.parse(data);
+        console.log("viewing the body from push")
         console.log(req.body)
         allNotes.push({
             title: req.body.title,
             text: req.body.text,
         })
-        console.log(allCharacters)
+        console.log("viewing the new db")
+        console.log(allNotes)
 
         fs.writeFile("../db/db.json", JSON.stringify(allNotes), (err) => {
             if(err) throw err;
