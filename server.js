@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const PORT = 8000;
-const apiRoutes = require("./server/routes/apiRoutes");
-const clientRoutes = require("./server/routes/clientRoutes")
+const apiRoutes = require("./server/apiRoutes");
+const clientRoutes = require("./server/clientRoutes")
 
 // needed to access the url
 app.use(express.urlencoded({extended: true}));
