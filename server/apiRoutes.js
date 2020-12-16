@@ -22,14 +22,10 @@ router.post("/notes", (req, res) => {
     fs.readFile("./db/db.json", "utf8", (err, data) => {
         if(err) throw err;
         const allNotes = JSON.parse(data);
-        console.log("viewing the body from push")
-        console.log(req.body)
         allNotes.push({
             title: req.body.title,
             text: req.body.text,
         })
-        console.log("viewing the new db")
-        console.log(allNotes)
 
         fs.writeFile("./db/db.json", JSON.stringify(allNotes), (err) => {
             if(err) throw err;
@@ -37,6 +33,28 @@ router.post("/notes", (req, res) => {
                 msg: "success fully added"
             })
         })
+    });
+})
+
+// delete notes
+router.get("/notes/:routename", (req, res) => {
+    console.log("attempting to delete")
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+        if(err) throw err;
+        const allNotes = JSON.parse(data);
+        const deleteNoteKey = req.params.routename
+        delete allNotes.deleteNoteKey
+
+        fs.writeFile("./db/db.json", JSON.stringify(allNotes), (err) => {
+            if(err) throw err;
+            res.json({
+                msg: "success note deleted"
+            })
+        })
+        return res.json({
+            msg: "the note you are trying to delete does not exist",
+            error: `attempted route: ${req.params.routename}`,
+          });
     });
 })
 
