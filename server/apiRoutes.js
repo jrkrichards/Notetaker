@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const fs = require("fs");
+const uniqid = require('uniqid');
 
 // Viewing current notes in db
 const dbInfo = fs.readFile("./db/db.json", "utf8", (err, data) => {
@@ -23,6 +24,7 @@ router.post("/notes", (req, res) => {
         if(err) throw err;
         const allNotes = JSON.parse(data);
         allNotes.push({
+            id: uniqid(),
             title: req.body.title,
             text: req.body.text,
         });
@@ -37,7 +39,7 @@ router.post("/notes", (req, res) => {
 })
 
 // // delete notes
-// router.get("/notes/:title", (req, res) => {
+// router.get("/notes/:id", (req, res) => {
 //     console.log("attempting to delete")
 //     fs.readFile("./db/db.json", "utf8", (err, data) => {
 //         if(err) throw err;
